@@ -1,62 +1,24 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Martin | Реабілітаційний центр в Ілаві</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <nav id="navbar">
-        <div class="logo">MARTIN</div>
-        <ul class="nav-links">
-            <li><a href="#home">Головна</a></li>
-            <li><a href="#about">Про нас</a></li>
-            <li><a href="#services">Послуги</a></li>
-            <li><a href="#contact">Контакти</a></li>
-        </ul>
-        <a href="#contact" class="btn">Записатись</a>
-    </nav>
-
-    <header id="home" class="hero">
-        <div class="hero-content" data-aos="fade-up" data-aos-duration="1500">
-            <h1>Повертаємо радість руху</h1>
-            <p>Сучасний реабілітаційний центр «Martin» у місті Ілава. Індивідуальний підхід та преміальний сервіс для вашого здоров'я.</p>
-            <a href="#services" class="btn btn-outline">Дізнатися більше</a>
+<section id="home" class="hero-scroll">
+        <div class="skeleton-container">
+            <img src="skull.png" class="skel-part skull" alt="Череп">
+            <img src="ribs.png" class="skel-part ribs" alt="Ребра">
+            <img src="arms.png" class="skel-part arms" alt="Руки">
+            <img src="legs.png" class="skel-part legs" alt="Ноги">
         </div>
-    </header>
-
-    <section id="services" class="services">
-        <h2 data-aos="fade-up">Наші напрямки</h2>
-        <div class="cards-container">
-            <div class="card" data-aos="fade-up" data-aos-delay="100">
-                <h3>Фізіотерапія</h3>
-                <p>Відновлення після травм з використанням найновішого європейського обладнання.</p>
+        
+        <div class="scroll-text-container">
+            <div class="scroll-step">
+                <h1 class="fade-text">Ваше тіло — це складна система</h1>
             </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="300">
-                <h3>Масаж</h3>
-                <p>Лікувальний та спортивний масаж від дипломованих спеціалістів.</p>
+            <div class="scroll-step">
+                <h1 class="fade-text">З часом деталі зношуються</h1>
             </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="500">
-                <h3>Кінезіотерапія</h3>
-                <p>Індивідуальні програми вправ для відновлення правильної біомеханіки тіла.</p>
+            <div class="scroll-step">
+                <h1 class="fade-text">Але ми знаємо, як зібрати вас заново</h1>
+                <a href="#services" class="btn">Почати відновлення</a>
             </div>
         </div>
     </section>
 
-    <footer id="contact">
-        <div class="footer-content" data-aos="zoom-in">
-            <h2>Чекаємо на вас</h2>
-            <p>м. Ілава, Польща</p>
-            <p>Телефон: +48 XXX XXX XXX</p>
-            <p>Email: info@martin-rehab.pl</p>
-        </div>
-    </footer>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
