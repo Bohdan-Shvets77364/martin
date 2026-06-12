@@ -4,10 +4,44 @@ window.addEventListener('load', function() {
     preloader.style.opacity = '0';
     setTimeout(() => {
         preloader.style.display = 'none';
+        // Запускаємо анімацію тексту ТІЛЬКИ після зникнення прелоадера
+        playHeroAnimation();
     }, 600);
 });
 
-// --- 2. ЗМІНА НАВІГАЦІЇ ПРИ СКРОЛІ ---
+// --- 2. КАСТОМНИЙ КУРСОР ---
+const cursorDot = document.getElementById("cursor-dot");
+const cursorOutline = document.getElementById("cursor-outline");
+const hoverTargets = document.querySelectorAll("a, .hover-target");
+
+window.addEventListener("mousemove", function (e) {
+    const posX = e.clientX;
+    const posY = e.clientY;
+
+    // Крапка рухається миттєво
+    cursorDot.style.left = `${posX}px`;
+    cursorDot.style.top = `${posY}px`;
+
+    // Кільце рухається з плавною затримкою (завдяки GSAP)
+    gsap.to(cursorOutline, {
+        x: posX,
+        y: posY,
+        duration: 0.15,
+        ease: "power2.out"
+    });
+});
+
+// Анімація курсора при наведенні на клікабельні елементи
+hoverTargets.forEach(target => {
+    target.addEventListener("mouseenter", () => {
+        cursorOutline.classList.add("cursor-hover");
+    });
+    target.addEventListener("mouseleave", () => {
+        cursorOutline.classList.remove("cursor-hover");
+    });
+});
+
+// --- 3. ЗМІНА НАВІГАЦІЇ ПРИ СКРОЛІ ---
 window.addEventListener('scroll', function() {
     const navbar = document.getElementById('navbar');
     if (window.scrollY > 50) {
@@ -17,59 +51,28 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// --- 3. ІНІЦІАЛІЗАЦІЯ AOS (Анімація блоків при скролі) ---
+// --- 4. ІНІЦІАЛІЗАЦІЯ AOS (Анімація при скролі вниз) ---
 AOS.init({
     once: true,
     offset: 100,
 });
 
-// --- 4. GSAP: АНІМАЦІЯ РОЗБОРУ СКЕЛЕТА ТА ТЕКСТІВ ---
-gsap.registerPlugin(ScrollTrigger);
-
-// Таймлайн для скелета
-const tl = gsap.timeline({
-    scrollTrigger: {
-        trigger: ".hero-scroll",
-        start: "top top", 
-        end: "bottom bottom", 
-        scrub: 1, 
-    }
-});
-
-// Розлітання частин
-tl.to(".skull", { y: -300, x: -150, rotation: -30, opacity: 0, ease: "power1.inOut" }, 0)
-  .to(".ribs", { scale: 1.5, opacity: 0, ease: "power1.inOut" }, 0)
-  .to(".arms", { x: -500, y: 200, rotation: -60, opacity: 0, ease: "power1.inOut" }, 0)
-  .to(".legs", { y: 500, x: 250, rotation: 40, opacity: 0, ease: "power1.inOut" }, 0);
-
-// Анімація кроків тексту
-const steps = gsap.utils.toArray('.scroll-step');
-
-steps.forEach((step, i) => {
-    gsap.fromTo(step, 
-        { opacity: 0, y: 100 },
-        {
-            opacity: 1,
-            y: 0,
-            scrollTrigger: {
-                trigger: step,
-                start: "top center",
-                end: "center center",
-                scrub: true
-            }
-        }
-    );
+// --- 5. GSAP: ПЛАВНА ПОЯВА ТЕКСТУ НА ГОЛОВНОМУ ЕКРАНІ ---
+function playHeroAnimation() {
+    const tl = gsap.timeline();
     
-    if(i !== steps.length - 1) {
-        gsap.to(step, {
-            opacity: 0,
-            y: -100,
-            scrollTrigger: {
-                trigger: step,
-                start: "center center",
-                end: "bottom center",
-                scrub: true
-            }
-        });
-    }
-});
+    tl.fromTo(".gsap-title", 
+        { y: 50, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+    )
+    .fromTo(".gsap-text", 
+        { y: 30, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 
+        "-=0.5" // Починається трохи раніше, ніж закінчиться попередня
+    )
+    .fromTo(".gsap-btn-container", 
+        { y: 20, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 
+        "-=0.3"
+    );
+}
