@@ -1,4 +1,31 @@
-<section id="home" class="hero-scroll">
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martin | Реабілітаційний центр в Ілаві</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <nav id="navbar">
+        <div class="logo">MARTIN</div>
+        <ul class="nav-links">
+            <li><a href="#home">Головна</a></li>
+            <li><a href="#about">Про нас</a></li>
+            <li><a href="#services">Послуги</a></li>
+            <li><a href="#contact">Контакти</a></li>
+        </ul>
+        <a href="#contact" class="btn">Записатись</a>
+    </nav>
+
+    <section id="home" class="hero-scroll">
         <div class="skeleton-container">
             <img src="skull.png" class="skel-part skull" alt="Череп">
             <img src="ribs.png" class="skel-part ribs" alt="Ребра">
@@ -20,5 +47,74 @@
         </div>
     </section>
 
+    <section id="about" class="about">
+        <div class="about-img" data-aos="fade-right" data-aos-duration="1000">
+            <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=2070&auto=format&fit=crop" alt="Реабілітаційний центр Martin">
+        </div>
+        <div class="about-text" data-aos="fade-left" data-aos-duration="1000">
+            <h2>Про центр Martin</h2>
+            <p>Ми використовуємо інноваційні методики та європейські стандарти для вашого швидкого відновлення. Наша команда — це фахівці з багаторічним досвідом, які повертають радість руху.</p>
+            <ul class="features">
+                <li><span class="icon">✓</span> Сучасне європейське обладнання</li>
+                <li><span class="icon">✓</span> Індивідуальні програми відновлення</li>
+                <li><span class="icon">✓</span> Преміальні умови перебування</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2 data-aos="fade-up">Наші напрямки</h2>
+        <div class="cards-container">
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <h3>Фізіотерапія</h3>
+                <p>Відновлення після травм з використанням найновішого європейського обладнання.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="300">
+                <h3>Масаж</h3>
+                <p>Лікувальний та спортивний масаж від дипломованих спеціалістів.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="500">
+                <h3>Кінезіотерапія</h3>
+                <p>Індивідуальні програми вправ для відновлення правильної біомеханіки тіла.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="contact-container" data-aos="fade-up" data-aos-duration="1000">
+            <div class="contact-info">
+                <h2>Зв'яжіться з нами</h2>
+                <p>Залиште заявку, і наш спеціаліст зателефонує вам для безкоштовної консультації щодо вашої реабілітації.</p>
+                <ul class="info-list">
+                    <li>📍 м. Ілава, Польща</li>
+                    <li>📞 +48 XXX XXX XXX</li>
+                    <li>✉️ info@martin-rehab.pl</li>
+                </ul>
+            </div>
+            
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    <input type="text" placeholder="Ваше ім'я" required>
+                    <input type="tel" placeholder="Номер телефону" required>
+                    <textarea placeholder="Опишіть вашу проблему (необов'язково)" rows="4"></textarea>
+                    <button type="submit" class="btn">Відправити заявку</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="map-container" data-aos="fade-in" data-aos-duration="1500">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d38090.8705910777!2d19.53171810574062!3d53.59664539169601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4714d9b04ab6bba3%3A0x1034f5cb1b93f6!2zSWxhd2EsIFBvbGFuZA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <footer class="bottom-footer">
+        <p>© 2026 Реабілітаційний центр MARTIN. Всі права захищені.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
